@@ -1,0 +1,23 @@
+Package: gretel
+Title: Generalized Path Analysis for Social Networks
+Version: 0.0.0.9000
+Date: 2019-08-09
+Authors@R: person("David", "Buch", email = "davidbuch42@gmail.com", 
+    role = c("aut", "cre"), comment = c(ORCID = "0000-0002-4574-0075"))
+Description: Features methods for quantifying path strengths and identifying 
+    optimal paths under a variety of modeling assumptions. Intended to be used 
+    in service of other structural analyses.
+Maintainer: David Buch <davidbuch42@gmail.com>
+URL: http://github.com/davidbuch/gretel
+BugReports: https://github.com/davidbuch/gretel/issues
+License: GPL-3
+Depends: 
+    R (>= 3.0)
+Imports: 
+    Rcpp (>= 1.0.0),
+    ResistorArray (>= 1.0-32)
+LinkingTo: Rcpp
+Suggests: knitr
+VignetteBuilder: knitr
+LazyData: true
+RoxygenNote: 6.1.1
