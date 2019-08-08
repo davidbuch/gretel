@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Date: 2019-08-09
 Authors@R: person("David", "Buch", email = "davidbuch42@gmail.com", 
     role = c("aut", "cre"), comment = c(ORCID = "0000-0002-4574-0075"))
-Description: Features methods for quantifying path strengths and identifying 
+Description: Features methods for quantifying path values and identifying 
     optimal paths under a variety of modeling assumptions. Intended to be used 
     in service of other structural analyses.
 Maintainer: David Buch <davidbuch42@gmail.com>

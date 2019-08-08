@@ -1,0 +1,2 @@
+^cran-comments\.md$ # Comments for CRAN submission
+^NEWS\.md$          # A news file written in Markdown
