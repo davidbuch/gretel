@@ -4,12 +4,12 @@
 \alias{all_opt_gpv}
 \title{Optimize All Generalized Path Values}
 \usage{
-all_opt_gpv(sociomatrix, alpha = Inf, node_costs = NULL)
+all_opt_gpv(sociomatrix, p = Inf, node_costs = NULL)
 }
 \arguments{
 \item{sociomatrix}{a nonnegative, real valued sociomatrix.}
 
-\item{alpha}{a nonnegative real number that sets the 'alpha-norm' parameter for 
+\item{p}{a nonnegative real number that sets the 'p-norm' parameter for 
 generalized path value calculation.}
 
 \item{node_costs}{a list of costs, in order, of all nodes represented in the 

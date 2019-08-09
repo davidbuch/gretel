@@ -15,7 +15,7 @@
 #' 
 #' @export
 binary_distance <- function(sociomatrix, path){
-  return(1/gpv(sociomatrix, path, alpha = 0))
+  return(1/gpv(sociomatrix, path, p = 0))
 }
 
 #' Peay's Path Value Measure
@@ -37,7 +37,7 @@ binary_distance <- function(sociomatrix, path){
 #' @seealso \code{\link{peay_average_path_value}}
 #' @export
 peay_path_value <- function(sociomatrix, path){
-  return(gpv(sociomatrix, path, alpha = Inf))
+  return(gpv(sociomatrix, path, p = Inf))
 }
 
 #' Flament's Path Length Measure

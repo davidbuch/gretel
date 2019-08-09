@@ -4,7 +4,7 @@
 \alias{opt_gpv}
 \title{Optimize Generalized Path Value}
 \usage{
-opt_gpv(sociomatrix, source, target, alpha = Inf, node_costs = NULL)
+opt_gpv(sociomatrix, source, target, p = Inf, node_costs = NULL)
 }
 \arguments{
 \item{sociomatrix}{a nonnegative, real valued sociomatrix.}
@@ -13,7 +13,7 @@ opt_gpv(sociomatrix, source, target, alpha = Inf, node_costs = NULL)
 
 \item{target}{an integer index corresponding to a node in \code{sociomatrix}}
 
-\item{alpha}{a nonnegative real number that sets the 'alpha-norm' parameter for 
+\item{p}{a nonnegative real number that sets the 'p-norm' parameter for 
 generalized path value calculation.}
 
 \item{node_costs}{a list of costs, in order, of all nodes represented in the 

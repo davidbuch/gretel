@@ -27,7 +27,7 @@ sum_path <- function(edge_data, path){
 #' 
 #' @example
 #' # Identify the optimal paths
-#' best_paths <- all_opt_gpv(YangKnoke01, alpha = 1)
+#' best_paths <- all_opt_gpv(YangKnoke01, p = 1)
 #' 
 #' # 'best_paths' will contain a list of trees in dijkstra's format.
 #' # 'best_paths[[i]]' is the tree encoding shortest paths from source
@@ -76,8 +76,8 @@ scale_to_odds <- function(sociomatrix, odds_scale, odds_scale_by_node){
   return(sociomatrix)
 }
 
-shortest_path <- function(distance_matrix, source, target, node_costs, alpha_finite = T){
-  if(alpha_finite == T){
+shortest_path <- function(distance_matrix, source, target, node_costs, p_finite = T){
+  if(p_finite == T){
     prev <- dijkstra_nodes(distance_matrix, source, node_costs)
   } else {
     prev <- dijkstra_inf(distance_matrix, source)
@@ -96,10 +96,10 @@ shortest_path <- function(distance_matrix, source, target, node_costs, alpha_fin
   return(path)
 }
 
-APSP <- function(dist, node_costs, alpha_finite = T){
+APSP <- function(dist, node_costs, p_finite = T){
   nv <- nrow(dist)
   paths <- list()
-  if(alpha_finite == T){
+  if(p_finite == T){
     for(s in 1:nv){
       paths[[s]] <- dijkstra_nodes(dist = dist, src = s, node_costs = node_costs)
     }

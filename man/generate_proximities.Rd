@@ -5,7 +5,7 @@
 \title{Generate a Proximity Matrix}
 \usage{
 generate_proximities(sociomatrix, mode = c("ogpv, oppv, sconductivity"),
-  alpha = Inf, node_costs = NULL, odds_scale = 1,
+  p = Inf, node_costs = NULL, odds_scale = 1,
   odds_scale_by_node = NULL)
 }
 \arguments{
@@ -13,7 +13,7 @@ generate_proximities(sociomatrix, mode = c("ogpv, oppv, sconductivity"),
 
 \item{mode}{a selection of \code{'ogpv'}, \code{'oppv'}, or \code{'sconductivity'}}
 
-\item{alpha}{if \code{mode} is \code{'ogpv'}, determines 'alpha-norm' parameter for 
+\item{p}{if \code{mode} is \code{'ogpv'}, determines 'p-norm' parameter for 
 generalized path value calculation.}
 
 \item{node_costs}{if \code{mode} is \code{'ogpv'}, assigns transmission costs to
@@ -43,7 +43,7 @@ Generates a proximity matrix in one of three modes:
 \examples{
 ## Generate a proximity matrix in each mode
 ## Optimal Generalized Path Value
-generate_proximities(YangKnoke01, mode = "ogpv", alpha = Inf, node_costs = c(1,3,3,2,1))
+generate_proximities(YangKnoke01, mode = "ogpv", p = Inf, node_costs = c(1,3,3,2,1))
 
 ## Optimal Probabilistic Path Value
 generate_proximities(YangKnoke01, mode = "oppv", odds_scale = 2)

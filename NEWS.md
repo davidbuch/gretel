@@ -25,7 +25,8 @@ The exported functions in this package are
 * ```unpack```, which unpacks the Dijkstra-format encoded shortest paths returned by
   ```all_opt_gpv``` and ```all_opt_ppv```. See their help pages for details.
 
-The package also includes two example datasets
+The package also includes three example datasets
 
 * ```YangKnoke01```
+* ```OpsahlEtAl10```
 * ```BuchDarrah19```
