@@ -1,7 +1,5 @@
 # gretel: Generalized Path Analysis for Social Networks
 
-----
-
 Features methods for quantifying path values and identifying optimal paths under a 
 variety of modeling assumptions. Intended to be used in service of other structural 
 analyses.

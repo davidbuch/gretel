@@ -1,7 +1,5 @@
 # gretel 0.0.1
 
-----
-
 ```gretel``` is a package for generalized path analysis. It implements new measures that
 are described in a forthcoming research publication, as well as some traditional path 
 value measures described in *Yang, Knoke* (2001).
