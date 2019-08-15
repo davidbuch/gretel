@@ -7,7 +7,7 @@
 #'
 #' We assume that observed tie strengths in \code{sociomatrix} are linearly
 #' proportional to transmission odds. That is, if the transmission odds for
-#' a strength 1 tie are 1 to 1, the transmission odds for a strenght 5 tie are
+#' a strength 1 tie are 1 to 1, the transmission odds for a strength 5 tie are
 #' 1 to 5.
 #'
 #'
@@ -33,6 +33,7 @@
 #' 
 #' @export
 ppv <- function(sociomatrix, path, odds_scale = 1, odds_scale_by_node = NULL){
+  check_input(sociomatrix, path = path, odds_scale = odds_scale, odds_scale_by_node = odds_scale_by_node)
   odds_matrix <- scale_to_odds(sociomatrix, odds_scale, odds_scale_by_node)
   probability_matrix <- odds_matrix/(1+odds_matrix)
   lpm <- log(probability_matrix)

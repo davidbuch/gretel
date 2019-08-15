@@ -4,8 +4,8 @@
 \alias{generate_proximities}
 \title{Generate a Proximity Matrix}
 \usage{
-generate_proximities(sociomatrix, mode = c("ogpv, oppv, sconductivity"),
-  p = Inf, node_costs = NULL, odds_scale = 1,
+generate_proximities(sociomatrix, mode = c("ogpv", "oppv",
+  "sconductivity"), p = Inf, node_costs = NULL, odds_scale = 1,
   odds_scale_by_node = NULL)
 }
 \arguments{

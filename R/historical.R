@@ -15,13 +15,14 @@
 #' 
 #' @export
 binary_distance <- function(sociomatrix, path){
+  check_input(sociomatrix, path = path)
   return(1/gpv(sociomatrix, path, p = 0))
 }
 
 #' Peay's Path Value Measure
 #'
 #' Calculates path value as defined in Peay (1980). That is, returns the
-#' value of the weakes connection in the path, if all edges exist. 
+#' value of the weakest connection in the path, if all edges exist. 
 #' Otherwise, returns 0.
 #'
 #' @param sociomatrix a nonnegative, real valued sociomatrix.
@@ -37,6 +38,7 @@ binary_distance <- function(sociomatrix, path){
 #' @seealso \code{\link{peay_average_path_value}}
 #' @export
 peay_path_value <- function(sociomatrix, path){
+  check_input(sociomatrix, path = path)
   return(gpv(sociomatrix, path, p = Inf))
 }
 
@@ -58,6 +60,7 @@ peay_path_value <- function(sociomatrix, path){
 #' @seealso \code{\link{flament_average_path_length}}
 #' @export
 flament_path_length <- function(sociomatrix, path){
+  check_input(sociomatrix, path = path)
   path_sum <- 0
   nsteps <- length(path) - 1
   for(i in 1:nsteps){
@@ -88,6 +91,7 @@ flament_path_length <- function(sociomatrix, path){
 #' @seealso \code{\link{peay_path_value}}
 #' @export
 peay_average_path_value <- function(sociomatrix, path){
+  #peay_path_value() will handle input checking
   return(peay_path_value(sociomatrix, path)/(length(path) - 1))
 }
 
@@ -110,5 +114,6 @@ peay_average_path_value <- function(sociomatrix, path){
 #' @seealso \code{\link{flament_path_length}}
 #' @export
 flament_average_path_length <- function(sociomatrix, path){
+  #flament_path_length() will handle input checking
   return(flament_path_length(sociomatrix, path)/(length(path) - 1))
 }

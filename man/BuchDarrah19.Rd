@@ -12,6 +12,6 @@
 BuchDarrah19
 }
 \description{
-A sociomatrix encoding tie strenghts among five nodes
+A sociomatrix encoding tie strengths among five nodes
 }
 \keyword{datasets}

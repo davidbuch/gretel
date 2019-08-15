@@ -36,6 +36,7 @@
 #' 
 #' @export
 gpv <- function(sociomatrix, path, p = Inf, node_costs = NULL){
+  check_input(sociomatrix, path = path, p_norm = p, node_costs = node_costs)
   if(is.null(node_costs)){
     node_costs <- rep(0, nrow(sociomatrix))
   }

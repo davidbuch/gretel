@@ -12,7 +12,7 @@
 OpsahlEtAl10
 }
 \description{
-A sociomatrix encoding tie strenghts among five nodes, used for examples in
+A sociomatrix encoding tie strengths among five nodes, used for examples in
 Opsahl, Agneessens, Skvoretz (2010) Social Networks 32(2010):245-251
 }
 \keyword{datasets}

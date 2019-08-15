@@ -29,7 +29,7 @@ sum_path <- function(edge_data, path){
 #' # Identify the optimal paths
 #' best_paths <- all_opt_gpv(YangKnoke01, p = 1)
 #' 
-#' # 'best_paths' will contain a list of trees in dijkstra's format.
+#' # 'best_paths' will contain a list of trees in Dijkstra's format.
 #' # 'best_paths[[i]]' is the tree encoding shortest paths from source
 #' #     node 'i' to all alters. We can return the optimal path from 
 #' #     node 1 to node 4 as follows.
@@ -117,4 +117,79 @@ sconduct <- function(sociomatrix){
   laplacian <- diag(apply(sociomatrix,MARGIN = 1,sum)) - sociomatrix
   sconductivity <- 1/ResistorArray::Wu(laplacian)
   return(sconductivity)
+}
+
+check_input <- function(sociomatrix, path=1, source=1, target=1, p_norm=1, node_costs = NULL, odds_scale=1, odds_scale_by_node = NULL){
+  # Check sociomatrix
+  if(!is.matrix(sociomatrix)){
+    stop("'sociomatrix' must be class 'matrix'")
+  }
+  if(!is.numeric(sociomatrix)){
+    stop("'sociomatrix' must be type 'numeric'")
+  }
+  if(nrow(sociomatrix) != ncol(sociomatrix)){
+    stop("'sociomatrix' must be square")
+  }
+  actors <- 1:ncol(sociomatrix) # used in checking path
+  
+  # Check path
+  if(is.null(path)){
+   stop("'path' of node indices must be provided") 
+  }
+  if(any(!(path %in% actors))){
+    stop("Not all node indices in 'path' correspond to indices in 'sociomatrix'")
+  }
+  
+  # Check source and target
+  if(is.null(source) || is.null(target)){
+    stop("A source and target vertex must be provided")
+  }
+  if((length(source) != 1) || (length(target) != 1)){
+    stop("'source' and 'target' must be unique")
+  }
+  if(!((source %in% actors) && (target %in% actors))){
+    stop("'source' and 'target' must both correspond to vertex indices in 'sociomatrix'")
+  }
+  
+  # Check p_norm
+  if(is.null(p_norm)){
+    stop("'p_norm' must be specified")
+  }
+  if(!(is.numeric(p_norm) && (length(p_norm) == 1))){
+    stop("'p_norm' must be a unique numeric")
+  }
+  if(p_norm < 0){
+    stop("'p_norm' must be nonnegative")
+  }
+  
+  #check odds_scale
+  if(is.null(odds_scale)){
+    stop("'odds_scale' must be specified")
+  }
+  if(!(is.numeric(odds_scale) && (length(odds_scale) == 1))){
+    stop("'odds_scale' must be a unique numeric")
+  }
+  if(odds_scale < 0){
+    stop("'odds_scale' must be nonnegative")
+  }
+  
+  # check node_costs, if provided
+  if(!is.null(node_costs)){
+    if(!is.numeric(node_costs) || length(node_costs) != length(actors)){
+      stop("'node_costs' must be a numeric vector of length 'nrow(sociomatrix)'")
+    }
+    if(any(node_costs < 0)){
+      stop("'node_costs' must be nonnegative")
+    }
+  }
+  
+  # check odds_scale_by_node, if provided
+  if(!is.null(odds_scale_by_node)){
+    if(!is.numeric(odds_scale_by_node) || length(odds_scale_by_node) != length(actors)){
+      stop("'odds_scale_by_node' must be a numeric vector of length 'nrow(sociomatrix)'")
+    }
+    if(any(odds_scale_by_node < 0)){
+      stop("'odds_scale_by_node' values must be nonnegative")
+    }
+  }
 }

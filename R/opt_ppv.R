@@ -27,6 +27,7 @@
 #' 
 #' @export
 opt_ppv <- function(sociomatrix, source, target, odds_scale = 1, odds_scale_by_node = NULL){
+  check_input(sociomatrix, source = source, target = target, odds_scale = odds_scale, odds_scale_by_node = odds_scale_by_node)
   odds_matrix <- scale_to_odds(sociomatrix, odds_scale, odds_scale_by_node)
   probability_matrix <- odds_matrix/(1+odds_matrix)
   lpm <- log(probability_matrix)
@@ -59,7 +60,7 @@ opt_ppv <- function(sociomatrix, source, target, odds_scale = 1, odds_scale_by_n
 #' # Identify the optimal paths
 #' best_paths <- all_opt_ppv(YangKnoke01, alpha = 1)
 #' 
-#' # 'best_paths' will contain a list of trees in dijkstra's format.
+#' # 'best_paths' will contain a list of trees in Dijkstra's format.
 #' # 'best_paths[[i]]' is the tree encoding shortest paths from source
 #' #     node 'i' to all alters. We can return the optimal path from 
 #' #     node 1 to node 4 as follows.
@@ -67,6 +68,7 @@ opt_ppv <- function(sociomatrix, source, target, odds_scale = 1, odds_scale_by_n
 #' 
 #' @export
 all_opt_ppv <- function(sociomatrix, odds_scale = 1, odds_scale_by_node = NULL){
+  check_input(sociomatrix, odds_scale = odds_scale, odds_scale_by_node = odds_scale_by_node)
   odds_matrix <- scale_to_odds(sociomatrix, odds_scale, odds_scale_by_node)
   probability_matrix <- odds_matrix/(1+odds_matrix)
   lpm <- log(probability_matrix)

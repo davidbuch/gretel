@@ -10,7 +10,7 @@
 
 #' Example data from Opsahl, Agneessens, Skvoretz (2010)
 #' 
-#' A sociomatrix encoding tie strenghts among five nodes, used for examples in
+#' A sociomatrix encoding tie strengths among five nodes, used for examples in
 #' Opsahl, Agneessens, Skvoretz (2010) Social Networks 32(2010):245-251
 #' 
 #' @format a numeric matrix with 5 rows and 5 columns
@@ -20,7 +20,7 @@
 
 #' Example data for gretel
 #' 
-#' A sociomatrix encoding tie strenghts among five nodes
+#' A sociomatrix encoding tie strengths among five nodes
 #' 
 #' @format a numeric matrix with 5 rows and 5 columns
 #' 

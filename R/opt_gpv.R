@@ -27,6 +27,7 @@
 #' 
 #' @export
 opt_gpv <- function(sociomatrix, source, target, p = Inf, node_costs = NULL){
+  check_input(sociomatrix, source = source, target = target, p_norm = p, node_costs = node_costs)
   if(is.null(node_costs)){
     node_costs <- rep(0,nrow(sociomatrix))
   }
@@ -67,7 +68,7 @@ opt_gpv <- function(sociomatrix, source, target, p = Inf, node_costs = NULL){
 #' # Identify the optimal paths
 #' best_paths <- all_opt_gpv(YangKnoke01, p = 1)
 #' 
-#' # 'best_paths' will contain a list of trees in dijkstra's format.
+#' # 'best_paths' will contain a list of trees in Dijkstra's format.
 #' # 'best_paths[[i]]' is the tree encoding shortest paths from source
 #' #     node 'i' to all alters. We can return the optimal path from 
 #' #     node 1 to node 4 as follows.
@@ -75,6 +76,7 @@ opt_gpv <- function(sociomatrix, source, target, p = Inf, node_costs = NULL){
 #' 
 #' @export
 all_opt_gpv <- function(sociomatrix, p = Inf, node_costs = NULL){
+  check_input(sociomatrix, p_norm = p, node_costs = node_costs)
   if(is.null(node_costs)){
     node_costs <- rep(0,nrow(sociomatrix))
   }

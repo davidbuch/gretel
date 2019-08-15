@@ -26,7 +26,7 @@ tie strenghts.
 \details{
 We assume that observed tie strengths in \code{sociomatrix} are linearly
 proportional to transmission odds. That is, if the transmission odds for
-a strength 1 tie are 1 to 1, the transmission odds for a strenght 5 tie are
+a strength 1 tie are 1 to 1, the transmission odds for a strength 5 tie are
 1 to 5.
 }
 \examples{

@@ -8,7 +8,7 @@ Description: Features methods for quantifying path values and identifying
     optimal paths under a variety of modeling assumptions. Intended to be used 
     in service of other structural analyses.
 Maintainer: David Buch <davidbuch42@gmail.com>
-URL: http://github.com/davidbuch/gretel
+URL: https://github.com/davidbuch/gretel
 BugReports: https://github.com/davidbuch/gretel/issues
 License: GPL-3
 Depends: 
@@ -19,7 +19,8 @@ Imports:
 LinkingTo: Rcpp
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat (>= 2.1.0)
 VignetteBuilder: knitr
 LazyData: true
 RoxygenNote: 6.1.1

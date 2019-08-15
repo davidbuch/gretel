@@ -9,12 +9,12 @@ using namespace Rcpp;
 
 //' Find the shortest paths to other vertices
 //' 
-//' @param dist A matrix of distances between nodes
-//' @param src An integer vertex ID 
+//' @param dist a matrix of distances between nodes
+//' @param src an integer vertex ID 
 //' @param node_costs a list of costs, in order, of all nodes represented in the 
 //'     sociomatrix, all are assumed 0 if unspecified
-//' @return A numeric vector, entry \emph{i} of which is the vertex immediately preceeding 
-//'     vertex \emph{i} in the shortest path leading to \emph{i}. Full paths must be constructed
+//' @return a numeric vector, entry \emph{i} of which is the vertex immediately preceeding 
+//'     vertex \emph{i} in the shortest path leading to that vertex. Full paths must be constructed
 //'     recursively.
 // [[Rcpp::export]]
 IntegerVector dijkstra_nodes(NumericMatrix dist, int src, NumericVector node_costs){
@@ -30,17 +30,12 @@ IntegerVector dijkstra_nodes(NumericMatrix dist, int src, NumericVector node_cos
   int on;
   int some_more_unvisited;
   int up_next;
-  int visited[nv];
+  std::vector<int> visited(nv,FALSE);
   double src_to_on;
   double cost_of_on;
   double on_to_i;
   double dist_to_beat;
-  double short_src_to_[nv];
-  
-  for(int i = 0; i < nv; i++){
-    visited[i] = FALSE; // Initializes all values to 0
-    short_src_to_[i] = R_PosInf; // Length of shortest known path to i 
-  }
+  std::vector<double> short_src_to_(nv, R_PosInf);
   
   short_src_to_[src] = 0;
   on = src; // Move to src vertex
@@ -84,10 +79,10 @@ IntegerVector dijkstra_nodes(NumericMatrix dist, int src, NumericVector node_cos
 
 //' Find the shortest L-Inf norm paths to other vertices
 //' 
-//' @param dist A matrix of distances between nodes
-//' @param src An integer vertex ID 
-//' @return A numeric vector, entry \emph{i} of which is the vertex immediately preceeding 
-//'   vertex \emph{i} in the shortest path leading to \emph{i}. Full paths must be constructed
+//' @param dist a matrix of distances between nodes
+//' @param src an integer vertex ID 
+//' @return a numeric vector, entry \emph{i} of which is the vertex immediately preceeding 
+//'   vertex \emph{i} in the shortest path leading to that vertex. Full paths must be constructed
 //'   recursively.
 // [[Rcpp::export]]
 IntegerVector dijkstra_inf(NumericMatrix dist, int src){
@@ -103,16 +98,11 @@ IntegerVector dijkstra_inf(NumericMatrix dist, int src){
   int on;
   int some_more_unvisited;
   int up_next;
-  int visited[nv];
+  std::vector<int> visited(nv,FALSE);
   double src_to_on;
   double on_to_i;
   double dist_to_beat;
-  double short_src_to_[nv];
-  
-  for(int i = 0; i < nv; i++){
-    visited[i] = FALSE; // Initializes all values to 0
-    short_src_to_[i] = R_PosInf; // Length of shortest known path to i 
-  }
+  std::vector<double> short_src_to_(nv, R_PosInf);
   
   short_src_to_[src] = 0;
   on = src; // Move to src vertex

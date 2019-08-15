@@ -38,7 +38,12 @@
 #' 
 #' @seealso \code{\link{gpv}}, \code{\link{ppv}}
 #' @export
-generate_proximities <- function(sociomatrix, mode = c("ogpv, oppv, sconductivity"), p = Inf, node_costs = NULL, odds_scale = 1, odds_scale_by_node = NULL){
+generate_proximities <- function(sociomatrix, mode = c("ogpv", "oppv", "sconductivity"), p = Inf, node_costs = NULL, odds_scale = 1, odds_scale_by_node = NULL){
+  check_input(sociomatrix, p_norm = p, node_costs = node_costs, odds_scale = odds_scale, odds_scale_by_node = odds_scale_by_node)
+  mode <- mode[1] # "ogpv" is default if no mode is specified.
+  if(!(mode %in% c("ogpv", "oppv", "sconductivity"))){
+    stop("'mode' must be one of 'ogpv', 'oppv', or 'sconductivity'")
+  }
   nv <- nrow(sociomatrix)
   if(mode == "ogpv"){
     trees <- all_opt_gpv(sociomatrix, p, node_costs)
@@ -73,7 +78,9 @@ generate_proximities <- function(sociomatrix, mode = c("ogpv, oppv, sconductivit
       }
     }
   }else if(mode == "sconductivity"){
-    message("sconductivity beta - intended only for undirected networks and no node costs")
+    if(!isSymmetric(sociomatrix)){
+      message("sconductivity beta - intended only for undirected networks and no node costs")
+    }
     proximity_matrix <- sconduct(sociomatrix)
   }
   return(proximity_matrix)

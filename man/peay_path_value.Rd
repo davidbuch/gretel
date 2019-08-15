@@ -13,7 +13,7 @@ peay_path_value(sociomatrix, path)
 }
 \description{
 Calculates path value as defined in Peay (1980). That is, returns the
-value of the weakes connection in the path, if all edges exist. 
+value of the weakest connection in the path, if all edges exist. 
 Otherwise, returns 0.
 }
 \examples{
