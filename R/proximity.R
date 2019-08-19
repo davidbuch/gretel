@@ -46,6 +46,7 @@ generate_proximities <- function(sociomatrix, mode = c("ogpv", "oppv", "sconduct
   }
   nv <- nrow(sociomatrix)
   if(mode == "ogpv"){
+    if((!is.null(odds_scale_by_node)) || (odds_scale != 1)){warning("Odds scale parameters not used for 'mode = ogpv'")}
     trees <- all_opt_gpv(sociomatrix, p, node_costs)
     proximity_matrix <- matrix(0, nrow = nv, ncol = nv)
     for(i in 1:nv){
@@ -62,6 +63,7 @@ generate_proximities <- function(sociomatrix, mode = c("ogpv", "oppv", "sconduct
       }
     }
   }else if(mode == "oppv"){
+    if((!is.null(node_costs)) || (p != Inf)){warning("Node cost parameter and p norm parameter not used for 'mode = oppv'")}
     trees <- all_opt_ppv(sociomatrix, odds_scale, odds_scale_by_node)
     proximity_matrix <- matrix(0, nrow = nv, ncol = nv)
     for(i in 1:nv){
@@ -78,8 +80,11 @@ generate_proximities <- function(sociomatrix, mode = c("ogpv", "oppv", "sconduct
       }
     }
   }else if(mode == "sconductivity"){
+    if((!is.null(node_costs)) || (p != Inf) || (!is.null(odds_scale_by_node)) || (odds_scale != 1)){
+      warning("Odds scale, node cost, and p norm parameters not used for 'mode = sconductivity'")
+    }
     if(!isSymmetric(sociomatrix)){
-      message("sconductivity beta - intended only for undirected networks and no node costs")
+      warning("sconductivity beta - intended only for undirected networks and no node costs")
     }
     proximity_matrix <- sconduct(sociomatrix)
   }

@@ -1,14 +1,16 @@
 context("Proximity generation")
 library(gretel)
 
-test_that("mode 'ogpv' works"){
+test_that("Mode 'ogpv' works", {
   # check for node costs and no node costs
-}
+  expect_equal_to_reference(generate_proximities(BuchDarrah19, mode = "ogpv", p = 3, node_costs = c(2,3,2,1,0)), file = "ogpv_prox_cache")
+})
 
-test_that("mode 'oppv' works"){
+test_that("Mode 'oppv' works", {
   # check for odds scale = 2 and odds_scale by node
-}
+  expect_equal_to_reference(generate_proximities(BuchDarrah19, mode = "oppv", odds_scale_by_node = c(1,2,3,2,1)), file = "oppv_prox_cache")
+})
 
-test_that("mode 'sconduct' works"){
-  # just one check
-}
+test_that("Mode 'sconduct' works", {
+  expect_equal_to_reference(generate_proximities(BuchDarrah19, mode = "sconductivity"), file = "scond_prox_cache")
+})

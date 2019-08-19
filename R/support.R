@@ -169,8 +169,8 @@ check_input <- function(sociomatrix, path=1, source=1, target=1, p_norm=1, node_
   if(!(is.numeric(odds_scale) && (length(odds_scale) == 1))){
     stop("'odds_scale' must be a unique numeric")
   }
-  if(odds_scale < 0){
-    stop("'odds_scale' must be nonnegative")
+  if(odds_scale <= 0){
+    stop("'odds_scale' must be positive")
   }
   
   # check node_costs, if provided
@@ -188,8 +188,8 @@ check_input <- function(sociomatrix, path=1, source=1, target=1, p_norm=1, node_
     if(!is.numeric(odds_scale_by_node) || length(odds_scale_by_node) != length(actors)){
       stop("'odds_scale_by_node' must be a numeric vector of length 'nrow(sociomatrix)'")
     }
-    if(any(odds_scale_by_node < 0)){
-      stop("'odds_scale_by_node' values must be nonnegative")
+    if(any(odds_scale_by_node <= 0)){
+      stop("'odds_scale_by_node' values must be positive")
     }
   }
 }
