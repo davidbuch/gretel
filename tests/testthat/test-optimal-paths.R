@@ -10,7 +10,7 @@ test_that("'opt_gpv' finds the optimal path", {
 
 test_that("'all_opt_gpv' finds optimals paths", {
   # without and with node costs
-  expect_equal_to_reference(all_opt_gpv(BuchDarrah19, p = 0, node_costs = c(0,0,5,0,0)), file = "ogpv_cache")
+  expect_equal_to_reference(all_opt_gpv(BuchDarrah19, p = 0, node_costs = c(0,0,5,0,0)), file = "tests/testthat/ogpv_cache")
 })
 
 test_that("'opt_ppv' finds the optimal path", {
@@ -21,7 +21,7 @@ test_that("'opt_ppv' finds the optimal path", {
 
 test_that("'all_opt_ppv' finds optimals paths", {
   # without and with nodewise odds scales
-  expect_equal_to_reference(all_opt_ppv(BuchDarrah19, odds_scale_by_node = c(1,1,9,1,1)), file = "oppv_cache")
+  expect_equal_to_reference(all_opt_ppv(BuchDarrah19, odds_scale_by_node = c(1,1,9,1,1)), file = "tests/testthat/oppv_cache")
 })
 
 test_that("unpack returns a valid path", {
