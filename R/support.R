@@ -76,8 +76,8 @@ scale_to_odds <- function(sociomatrix, odds_scale, odds_scale_by_node){
   return(sociomatrix)
 }
 
-shortest_path <- function(distance_matrix, source, target, node_costs, p_finite = T){
-  if(p_finite == T){
+shortest_path <- function(distance_matrix, source, target, node_costs, p_finite = TRUE){
+  if(p_finite == TRUE){
     prev <- dijkstra_nodes(distance_matrix, source, node_costs)
   } else {
     prev <- dijkstra_inf(distance_matrix, source)
@@ -96,10 +96,10 @@ shortest_path <- function(distance_matrix, source, target, node_costs, p_finite 
   return(path)
 }
 
-APSP <- function(dist, node_costs, p_finite = T){
+APSP <- function(dist, node_costs, p_finite = TRUE){
   nv <- nrow(dist)
   paths <- list()
-  if(p_finite == T){
+  if(p_finite == TRUE){
     for(s in 1:nv){
       paths[[s]] <- dijkstra_nodes(dist = dist, src = s, node_costs = node_costs)
     }
