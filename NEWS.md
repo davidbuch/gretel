@@ -1,3 +1,7 @@
+# gretel 0.0.1.9000
+
+Package in development after release of version 0.0.1. Pending submission of companion manuscript.
+
 # gretel 0.0.1
 
 ```gretel``` is a package for generalized path analysis. It implements new measures that
