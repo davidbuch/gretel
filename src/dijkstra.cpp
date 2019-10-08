@@ -71,7 +71,7 @@ IntegerVector dijkstra_nodes(NumericMatrix dist, int src, NumericVector node_cos
   
   // Shift back to R-style indices
   for(int i = 0; i < nv; i++){
-    if(i != src) prev[i]++;
+    if(prev[i] != NA_INTEGER) prev[i]++;
   }
   
   return prev;
@@ -137,7 +137,7 @@ IntegerVector dijkstra_inf(NumericMatrix dist, int src){
   
   // Shift back to R-style indices
   for(int i = 0; i < nv; i++){
-    if(i != src) prev[i]++;
+    if(prev[i] != NA_INTEGER) prev[i]++;
   }
   return prev;
 }
