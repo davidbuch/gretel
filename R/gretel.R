@@ -1,4 +1,4 @@
-#' sconduct: Generalized Path Analysis for Social Networks
+#' gretel: Generalized Path Analysis for Social Networks
 #' 
 #' This package contains two categories of functions. The first category is concerned
 #' with assigning values to user specified paths, while the second identifies
