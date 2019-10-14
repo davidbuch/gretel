@@ -4,7 +4,7 @@
 \name{gretel}
 \alias{gretel}
 \alias{gretel-package}
-\title{sconduct: Generalized Path Analysis for Social Networks}
+\title{gretel: Generalized Path Analysis for Social Networks}
 \description{
 This package contains two categories of functions. The first category is concerned
 with assigning values to user specified paths, while the second identifies
